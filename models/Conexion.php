@@ -3,8 +3,8 @@
 class Conexion{
   private $servidor = "localhost";
   private $puerto = "3306";
-  private $baseDatos = "";
-  private $usuario = "";
+  private $baseDatos = "sis_riego";
+  private $usuario = "root";
   private $clave = "";
 
     public function getConexion(){
