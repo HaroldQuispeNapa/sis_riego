@@ -4,7 +4,7 @@ require_once 'Conexion.php';
 class Actividad extends Conexion{
   private $conexion;
 
-  private function __CONSTRUCTOR(){
+  public function __CONSTRUCT(){
     $this->conexion = parent::getConexion();
   }
 
@@ -12,7 +12,7 @@ class Actividad extends Conexion{
     try {
       $consulta = $this->conexion->prepare("SELECT * FROM tabla_actividad");
       $consulta->execute();
-      return $consulta->fetchAll(PDO::FETCH_OBJ);
+      return $consulta->fetchAll(PDO::FETCH_ASSOC);
     } catch (Exception $e) {
       die ($e->getMessage());
     }
