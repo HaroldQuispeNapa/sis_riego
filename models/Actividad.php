@@ -29,4 +29,14 @@ class Actividad extends Conexion{
       die ($e->getMessage());
     }
   }
+
+  public function Insertar($datos= []){
+    try {
+      $consulta = $this->conexion->prepare("INSERT INTO tabla_actividad (idsensor, actividad, estado) VALUES (?, ?, ?)");
+      $consulta->execute([$datos['idsensor'], $datos['actividad'], $datos['estado']]);
+      return $this->conexion->lastInsertId();
+    } catch (Exception $e) {
+      die ($e->getMessage());
+    }
+  }
 }
